@@ -1,4 +1,3 @@
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class FirebaseCRUD {
@@ -8,4 +7,9 @@ class FirebaseCRUD {
         .doc(id)
         .set(employeeDetails);
   }
+
+  Future<Stream<QuerySnapshot>> getEmployees() async {
+    return FirebaseFirestore.instance.collection('employees').snapshots();
+  }
+
 }
