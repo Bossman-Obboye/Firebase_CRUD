@@ -12,4 +12,11 @@ class FirebaseCRUD {
     return FirebaseFirestore.instance.collection('employees').snapshots();
   }
 
+  Future updateEmployeeInfo (String id, Map<String, dynamic> updatedInfo) async{
+     return await FirebaseFirestore.instance
+        .collection('employees')
+        .doc(id)
+        .set(updatedInfo);
+  }
+
 }
